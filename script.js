@@ -1,3 +1,5 @@
+const url = 'https://tink.fly.dev/chat/martinikalkulaator'
+
 function appendToDisplay(value) {
     document.getElementById('display').value += value;
 }
@@ -17,7 +19,7 @@ function calculate() {
             calculation: expression + ' = ' + result
         };
 
-        fetch('https://kool.krister.ee/chat/martinikalkulaator', {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +36,6 @@ function calculate() {
     }
 }
 async function download() {
-    const url = 'https://kool.krister.ee/chat/martinikalkulaator';  
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -50,7 +51,7 @@ async function download() {
             element.appendChild(historyItem);  
         });
     } catch (error) {
-        console.log('Tekkis viga andmete laadimisel:', error);  
+        console.log('Andmed ei laadinud ara', error);  
     }
 }
 
